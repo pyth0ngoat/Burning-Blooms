@@ -38,7 +38,7 @@ const ProjectModal = ({ project, onClose }: Props) => {
             exit={{ opacity: 0, y: 40 }}
             transition={{ duration: 0.3 }}
             onClick={(e) => e.stopPropagation()}
-            className="relative z-10 w-full max-w-4xl mx-6 my-12 glass-surface rounded-lg overflow-hidden"
+            className="relative z-10 w-full max-w-5xl mx-4 my-12 bg-background border border-border rounded-sm overflow-hidden shadow-2xl"
           >
             {/* Close button */}
             <button
