@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -10,14 +11,13 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const scrollTo = (id: string) => {
+  const scrollTo = (id: string) =>
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-  };
 
   const links = [
+    { label: "Home", id: "home" },
     { label: "Work", id: "portfolio" },
     { label: "About", id: "about" },
-    { label: "Contact", id: "about" },
   ];
 
   return (
@@ -26,15 +26,18 @@ const Navbar = () => {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6 }}
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
-        scrolled ? "bg-background/85 backdrop-blur-md border-b border-border/60" : "bg-transparent"
+        scrolled ? "bg-background/80 backdrop-blur-md border-b border-border/60" : "bg-transparent"
       }`}
     >
-      <div className="container-x h-16 flex items-center justify-between">
+      <div className="container-x h-20 flex items-center justify-between">
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="font-display text-xl font-bold tracking-tight flex items-center gap-1"
+          className="flex items-center gap-2"
         >
-          VISUAL<span className="text-primary">.</span>
+          <span className="w-2 h-2 rounded-full bg-primary" />
+          <span className="font-display font-extrabold tracking-tight text-sm uppercase text-foreground">
+            Burning Blooms
+          </span>
         </button>
 
         <div className="hidden md:flex items-center gap-10">
@@ -42,7 +45,7 @@ const Navbar = () => {
             <button
               key={item.label}
               onClick={() => scrollTo(item.id)}
-              className="relative text-foreground/80 hover:text-foreground transition-colors text-sm font-medium hover-fill pb-1"
+              className="relative text-foreground/80 hover:text-primary transition-colors text-sm font-light tracking-wide hover-fill pb-1"
             >
               {item.label}
             </button>
@@ -50,11 +53,13 @@ const Navbar = () => {
         </div>
 
         <a
-          href="mailto:hello@youremail.com"
-          className="hidden md:inline-flex items-center gap-2 text-sm font-medium px-4 py-2 rounded-full bg-foreground text-background hover:bg-primary transition-colors"
+          href="mailto:hello@burningblooms.com"
+          className="group hidden md:inline-flex items-center gap-2 text-sm font-medium pl-5 pr-1 py-1 rounded-full bg-foreground text-background hover:bg-primary transition-colors"
         >
           Get in touch
-          <span className="text-base leading-none">→</span>
+          <span className="w-9 h-9 rounded-full bg-primary text-primary-foreground flex items-center justify-center group-hover:bg-foreground transition-colors">
+            <ArrowUpRight className="w-4 h-4" />
+          </span>
         </a>
       </div>
     </motion.nav>
