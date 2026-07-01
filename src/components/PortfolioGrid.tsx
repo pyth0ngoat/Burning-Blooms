@@ -15,39 +15,45 @@ const PortfolioGrid = () => {
   const filtered = filter === "All" ? projects : projects.filter((p) => p.category === filter);
 
   return (
-    <section id="portfolio" className="py-28 md:py-36 bg-background">
+    <section id="portfolio" className="py-24 md:py-32 bg-background">
       <div className="container-x">
-        {/* Header */}
+        {/* Header — inspired by "Behind the Designs" block */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16 md:mb-20"
+          className="grid md:grid-cols-12 gap-8 md:gap-12 mb-16 md:mb-20"
         >
-          <div>
-            <p className="mono text-xs tracking-[0.25em] uppercase text-muted-foreground mb-4">
-              001 — Selected Work
+          <div className="md:col-span-6">
+            <p className="thin text-xs tracking-[0.3em] uppercase text-primary mb-6">
+              002 — Our Work
             </p>
-            <h2 className="display-xl text-5xl md:text-7xl">
-              Featured <span className="serif-italic text-primary">projects</span>
+            <h2 className="display-xl text-5xl md:text-6xl lg:text-7xl text-foreground">
+              Our <span className="serif-italic text-primary">Work</span>
             </h2>
           </div>
 
-          {/* Filters */}
-          <div className="flex flex-wrap gap-2">
-            {filters.map((f) => (
-              <button
-                key={f}
-                onClick={() => setFilter(f)}
-                className={`px-4 py-2 text-xs mono tracking-widest uppercase rounded-full border transition-all duration-300 ${
-                  filter === f
-                    ? "bg-foreground text-background border-foreground"
-                    : "border-border text-muted-foreground hover:border-foreground hover:text-foreground"
-                }`}
-              >
-                {f}
-              </button>
-            ))}
+          <div className="md:col-span-6 flex flex-col justify-end gap-8">
+            <p className="thin text-lg md:text-xl text-foreground/80 leading-relaxed max-w-xl">
+              Where narrative structure meets seamless digital artistry. Browse our recent work in independent filmmaking, commercial direction, and advanced post-production.
+            </p>
+
+            {/* Filters */}
+            <div className="flex flex-wrap gap-2">
+              {filters.map((f) => (
+                <button
+                  key={f}
+                  onClick={() => setFilter(f)}
+                  className={`px-4 py-2 text-xs thin tracking-widest uppercase rounded-full border transition-all duration-300 ${
+                    filter === f
+                      ? "bg-primary text-primary-foreground border-primary"
+                      : "border-border text-foreground/70 hover:border-primary hover:text-primary"
+                  }`}
+                >
+                  {f}
+                </button>
+              ))}
+            </div>
           </div>
         </motion.div>
       </div>

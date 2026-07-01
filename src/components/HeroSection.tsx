@@ -1,97 +1,97 @@
 import { motion } from "framer-motion";
-import { ArrowDown } from "lucide-react";
+import { Behance, Instagram, Linkedin, Youtube } from "./SocialIcons";
+
+const socials = [
+  { label: "Behance", url: "https://behance.net", Icon: Behance },
+  { label: "LinkedIn", url: "https://linkedin.com", Icon: Linkedin },
+  { label: "Instagram", url: "https://instagram.com", Icon: Instagram },
+  { label: "YouTube", url: "https://youtube.com", Icon: Youtube },
+];
 
 const HeroSection = () => {
-  const scrollToWork = () => {
-    document.getElementById("portfolio")?.scrollIntoView({ behavior: "smooth" });
-  };
-
-  const marqueeItems = [
-    "Animation",
-    "VFX",
-    "Video Editing",
-    "Motion Design",
-    "3D",
-    "Compositing",
-    "Color",
-    "Storytelling",
-  ];
-
   return (
-    <section className="relative min-h-screen flex flex-col justify-end pb-10 pt-28 overflow-hidden bg-background">
-      {/* Background reel */}
-      <div className="absolute inset-0 -z-10">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover opacity-90"
-        >
-          <source src="/reel.mp4" type="video/mp4" />
-        </video>
-        <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/20 to-background" />
-      </div>
+    <section id="home" className="relative pt-28 pb-16 md:pt-32 md:pb-24 bg-background">
+      <div className="container-x">
+        {/* Hero frame */}
+        <div className="hero-frame min-h-[78vh] md:min-h-[86vh] flex flex-col justify-between p-6 md:p-10 lg:p-14">
+          {/* Background video */}
+          <video
+            autoPlay muted loop playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+          >
+            <source src="/reel.mp4" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 hero-vignette" />
 
-      <div className="container-x w-full">
-        {/* Eyebrow */}
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="flex items-center gap-3 mb-8"
-        >
-          <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-          <p className="mono text-xs tracking-[0.25em] uppercase text-foreground/70">
-            Portfolio / 2025 — Open for commissions
-          </p>
-        </motion.div>
+          {/* Content */}
+          <div className="relative z-10 flex items-start justify-between gap-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <p className="thin text-xs md:text-sm uppercase tracking-[0.35em] text-foreground/80">
+                Welcome to
+              </p>
+              <h1 className="mt-3 display-xl text-[13vw] md:text-[8.5vw] lg:text-[7vw] text-foreground leading-[0.85]">
+                Burning<br />Blooms
+              </h1>
+            </motion.div>
 
-        {/* Headline */}
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, ease: [0.2, 0.8, 0.2, 1] }}
-          className="display-xl text-[14vw] md:text-[11vw] lg:text-[9.5vw] leading-[0.85] text-foreground"
-        >
-          We craft <span className="serif-italic text-primary">visual</span>
-          <br />
-          realities for screen.
-        </motion.h1>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.15 }}
+              className="hidden md:block max-w-sm text-right pt-4"
+            >
+              <p className="serif-italic text-primary text-3xl lg:text-4xl leading-[1.1]">
+                Cinematic storytelling,<br />
+                driven by <span className="text-foreground">burning passion.</span>
+              </p>
+              <p className="mt-5 thin text-sm text-foreground/70 leading-relaxed">
+                A studio of independent filmmakers, commercial directors, and post-production artists shaping frames that linger.
+              </p>
+            </motion.div>
+          </div>
 
-        {/* Sub row */}
+          {/* Mobile tagline */}
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="md:hidden relative z-10 serif-italic text-primary text-2xl mt-8"
+          >
+            Cinematic storytelling, driven by <span className="text-foreground">burning passion.</span>
+          </motion.p>
+        </div>
+
+        {/* Socials strip — inspired by "trusted by" row */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="mt-12 grid md:grid-cols-3 gap-8 items-end"
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="mt-8 md:mt-10 rounded-2xl bg-card border border-border/60 px-6 md:px-10 py-6 flex flex-col md:flex-row md:items-center gap-6 md:gap-10"
         >
-          <div className="md:col-span-2">
-            <p className="text-foreground/80 text-lg md:text-xl max-w-2xl leading-relaxed">
-              A multidisciplinary studio of one — building cinematic animation, photoreal VFX, and rhythm-driven edits for brands, filmmakers, and artists.
-            </p>
+          <p className="thin text-xs uppercase tracking-[0.3em] text-foreground/60 max-w-[10rem] shrink-0">
+            Find us<br />across the web
+          </p>
+          <div className="flex-1 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
+            {socials.map(({ label, url, Icon }) => (
+              <a
+                key={label}
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-3 text-foreground hover:text-primary transition-colors"
+              >
+                <Icon className="w-5 h-5 shrink-0" />
+                <span className="font-display font-semibold tracking-tight text-lg group-hover:translate-x-0.5 transition-transform">
+                  {label}
+                </span>
+              </a>
+            ))}
           </div>
-
-          <button
-            onClick={scrollToWork}
-            className="group inline-flex items-center justify-between gap-6 px-6 py-5 rounded-full border border-foreground/20 hover:border-foreground hover:bg-foreground hover:text-background transition-all duration-300 self-end"
-          >
-            <span className="mono text-xs tracking-widest uppercase">Selected Work</span>
-            <ArrowDown className="w-4 h-4 transition-transform duration-300 group-hover:translate-y-1" />
-          </button>
         </motion.div>
-      </div>
-
-      {/* Marquee */}
-      <div className="mt-20 border-y border-border/70 py-5 overflow-hidden">
-        <div className="flex whitespace-nowrap marquee-track">
-          {[...marqueeItems, ...marqueeItems, ...marqueeItems].map((item, i) => (
-            <div key={i} className="flex items-center gap-10 px-10">
-              <span className="display-xl text-3xl md:text-4xl">{item}</span>
-              <span className="text-primary text-2xl">✦</span>
-            </div>
-          ))}
-        </div>
       </div>
     </section>
   );

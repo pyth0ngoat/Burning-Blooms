@@ -1,92 +1,91 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* ================================================================
+   BURNING BLOOMS — Brand palette
+   Champagne     #EACEAA   ->  36 60% 79%
+   Honey Garlic  #85431E   ->  19 63% 32%
+   Whiskey Sour  #D39858   ->  30 57% 59%
+   Burnt Coffee  #34150F   ->  9  56% 13%
+   Balsamico     #150C0C   ->  0  27% 7%
+   ================================================================ */
+
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 7%;
+    --background: 0 27% 7%;         /* Balsamico */
+    --foreground: 36 60% 79%;       /* Champagne */
 
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 7%;
+    --card: 9 56% 13%;              /* Burnt Coffee */
+    --card-foreground: 36 60% 79%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 7%;
+    --popover: 9 56% 13%;
+    --popover-foreground: 36 60% 79%;
 
-    /* DNEG-style coral/red accent */
-    --primary: 8 92% 62%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 30 57% 59%;          /* Whiskey Sour */
+    --primary-foreground: 0 27% 7%;
 
-    --secondary: 0 0% 96%;
-    --secondary-foreground: 0 0% 7%;
+    --secondary: 9 56% 13%;         /* Burnt Coffee */
+    --secondary-foreground: 36 60% 79%;
 
-    --muted: 0 0% 94%;
-    --muted-foreground: 0 0% 40%;
+    --muted: 9 56% 13%;
+    --muted-foreground: 36 30% 65%;
 
-    --accent: 0 0% 94%;
-    --accent-foreground: 0 0% 7%;
+    --accent: 19 63% 32%;           /* Honey Garlic */
+    --accent-foreground: 36 60% 79%;
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive-foreground: 36 60% 79%;
 
-    --border: 0 0% 88%;
-    --input: 0 0% 88%;
-    --ring: 8 92% 62%;
+    --border: 19 40% 20%;
+    --input: 19 40% 20%;
+    --ring: 30 57% 59%;
 
-    --radius: 0.25rem;
+    --radius: 1rem;
 
-    --surface-hover: 0 0% 97%;
-    --ink: 0 0% 7%;
+    --champagne: 36 60% 79%;
+    --honey: 19 63% 32%;
+    --whiskey: 30 57% 59%;
+    --coffee: 9 56% 13%;
+    --balsamico: 0 27% 7%;
 
-    --font-display: 'Inter Tight', sans-serif;
-    --font-body: 'Inter Tight', sans-serif;
+    --font-display: 'Montserrat', sans-serif;
+    --font-body: 'Montserrat', sans-serif;
     --font-serif: 'Instrument Serif', serif;
     --font-mono: 'JetBrains Mono', monospace;
   }
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
-  html, body {
-    @apply bg-background text-foreground;
-  }
+  * { @apply border-border; }
+  html, body { @apply bg-background text-foreground; }
   body {
     font-family: var(--font-body);
+    font-weight: 300;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
-    letter-spacing: -0.02em;
+    font-weight: 800;
+    letter-spacing: -0.03em;
   }
-  ::selection {
-    background: hsl(var(--primary));
-    color: hsl(var(--primary-foreground));
-  }
+  ::selection { background: hsl(var(--primary)); color: hsl(var(--primary-foreground)); }
 }
 
 @layer components {
-  .serif-italic {
-    font-family: var(--font-serif);
-    font-style: italic;
-    letter-spacing: -0.01em;
-  }
-  .mono {
-    font-family: var(--font-mono);
-  }
+  .serif-italic { font-family: var(--font-serif); font-style: italic; letter-spacing: -0.01em; }
+  .mono { font-family: var(--font-mono); }
+  .thin { font-weight: 200; letter-spacing: 0.02em; }
   .display-xl {
     font-family: var(--font-display);
-    font-weight: 600;
-    letter-spacing: -0.04em;
-    line-height: 0.9;
+    font-weight: 800;
+    letter-spacing: -0.045em;
+    line-height: 0.88;
   }
-  .container-x {
-    @apply px-6 md:px-10 lg:px-14;
-  }
+  .container-x { @apply px-6 md:px-10 lg:px-14; }
   .hover-fill::after {
     content: "";
     position: absolute;
@@ -97,23 +96,30 @@
     transform: scaleX(0);
     transition: transform 0.5s cubic-bezier(0.7, 0, 0.2, 1);
   }
-  .hover-fill:hover::after {
-    transform-origin: left;
-    transform: scaleX(1);
+  .hover-fill:hover::after { transform-origin: left; transform: scaleX(1); }
+
+  .hero-frame {
+    border-radius: 2rem;
+    overflow: hidden;
+    position: relative;
+    background: hsl(var(--coffee));
+  }
+  .hero-vignette {
+    background: linear-gradient(180deg,
+      hsl(var(--balsamico) / 0.15) 0%,
+      hsl(var(--balsamico) / 0.35) 40%,
+      hsl(var(--balsamico) / 0.85) 100%),
+      radial-gradient(ellipse at 30% 40%, hsl(var(--honey) / 0.55) 0%, transparent 55%);
   }
 }
 
-/* Marquee */
 @keyframes marquee {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
-.marquee-track {
-  animation: marquee 40s linear infinite;
-}
+.marquee-track { animation: marquee 45s linear infinite; }
 
-/* Scrollbar */
 ::-webkit-scrollbar { width: 8px; height: 8px; }
 ::-webkit-scrollbar-track { background: hsl(var(--background)); }
-::-webkit-scrollbar-thumb { background: hsl(var(--muted-foreground) / 0.3); border-radius: 4px; }
+::-webkit-scrollbar-thumb { background: hsl(var(--honey)); border-radius: 4px; }
 ::-webkit-scrollbar-thumb:hover { background: hsl(var(--primary)); }
