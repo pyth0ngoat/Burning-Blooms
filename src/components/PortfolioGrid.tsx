@@ -39,18 +39,23 @@ const PortfolioGrid = () => {
           </div>
         </motion.div>
 
-        {/* Bento tile grid — inspired by the reference layout */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 auto-rows-[minmax(220px,1fr)] gap-4 md:gap-5">
+        {/* Bento tile grid — text lives inside the thumbnails themselves */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 lg:grid-rows-2 gap-4 md:gap-5 lg:auto-rows-[minmax(0,1fr)] lg:h-[640px]">
           {categories.map((cat, i) => {
-            // Layout recipe for a rhythmic bento (5 tiles):
-            // row 1: [Shortfilms x3] [VFX x3]
-            // row 2: [3D x2] [Graphic x2] [Commercials x2]
+            // Desktop bento (6-col × 2-row):
+            //  Shortfilms:   col-span-3 row-span-2   (large left)
+            //  VFX & CGI:    col-span-3 row-span-1   (top right)
+            //  3D Modelling: col-span-2 row-span-1   (bottom right, third)
+            //  Graphic:      col-span-2 row-span-1
+            //  Commercials:  col-span-2 row-span-1
+            //
+            // Mobile/tablet: cards stack with a stable 16/9 aspect ratio.
             const spans = [
-              "lg:col-span-3 lg:row-span-2 min-h-[320px] lg:min-h-[420px]", // Shortfilms — large
-              "lg:col-span-3 min-h-[220px]",                                 // VFX
-              "lg:col-span-2 min-h-[220px]",                                 // 3D
-              "lg:col-span-2 min-h-[220px]",                                 // Graphic
-              "lg:col-span-2 min-h-[220px]",                                 // Commercials
+              "lg:col-span-3 lg:row-span-2",
+              "lg:col-span-3 lg:row-span-1",
+              "lg:col-span-2 lg:row-span-1",
+              "lg:col-span-2 lg:row-span-1",
+              "lg:col-span-2 lg:row-span-1",
             ];
             return (
               <motion.button
@@ -60,28 +65,18 @@ const PortfolioGrid = () => {
                 viewport={{ once: true, margin: "-80px" }}
                 transition={{ duration: 0.7, delay: i * 0.08, ease: [0.2, 0.8, 0.2, 1] }}
                 onClick={() => openCategory(cat)}
-                className={`group relative overflow-hidden rounded-2xl bg-card text-left ${spans[i]}`}
+                aria-label={cat}
+                className={`group relative overflow-hidden rounded-2xl bg-card text-left aspect-[16/10] sm:aspect-[4/3] lg:aspect-auto lg:h-full ${spans[i]}`}
               >
-                {/* Image */}
                 <img
                   src={categoryThumbnails[cat]}
                   alt={cat}
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.06]"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.05]"
                 />
-                {/* Darken overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/55 to-background/20 transition-opacity duration-500 group-hover:opacity-90" />
-                {/* Big title */}
-                <div className="absolute inset-0 flex items-center justify-center p-6">
-                  <h3 className="font-display font-extrabold uppercase text-center leading-[0.9] tracking-tight text-foreground text-4xl sm:text-5xl lg:text-6xl">
-                    {cat}
-                  </h3>
-                </div>
-                {/* Bottom meta */}
-                <div className="absolute left-5 right-5 bottom-5 flex items-center justify-between mono text-[10px] tracking-[0.25em] uppercase text-foreground/70">
-                  <span>0{i + 1}</span>
-                  <span className="opacity-0 translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 text-primary">
-                    View →
-                  </span>
+                {/* Subtle hover tint — no text overlay, thumbnails already have their titles */}
+                <div className="absolute inset-0 bg-background/0 group-hover:bg-background/20 transition-colors duration-500" />
+                <div className="absolute left-4 bottom-4 mono text-[10px] tracking-[0.25em] uppercase text-foreground/80 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                  View →
                 </div>
               </motion.button>
             );
