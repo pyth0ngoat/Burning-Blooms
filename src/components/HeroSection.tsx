@@ -44,7 +44,7 @@ const HeroSection = () => {
               transition={{ duration: 0.8, delay: 0.15 }}
               className="hidden md:block max-w-sm text-right pt-4"
             >
-              <p className="font-display font-medium text-primary text-2xl lg:text-3xl leading-[1.15] tracking-tight">
+              <p className="serif-italic text-primary text-lg lg:text-xl leading-[1.2]">
                 Cinematic storytelling,<br />
                 driven by <span className="text-foreground">burning passion.</span>
               </p>
@@ -56,7 +56,7 @@ const HeroSection = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="md:hidden relative z-10 font-display font-medium text-primary text-xl mt-8 tracking-tight"
+            className="md:hidden relative z-10 serif-italic text-primary text-base mt-8 leading-snug"
           >
             Cinematic storytelling, driven by <span className="text-foreground">burning passion.</span>
           </motion.p>
