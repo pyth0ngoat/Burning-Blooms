@@ -44,12 +44,9 @@ const HeroSection = () => {
               transition={{ duration: 0.8, delay: 0.15 }}
               className="hidden md:block max-w-sm text-right pt-4"
             >
-              <p className="serif-italic text-primary text-3xl lg:text-4xl leading-[1.1]">
+              <p className="font-display font-medium text-primary text-2xl lg:text-3xl leading-[1.15] tracking-tight">
                 Cinematic storytelling,<br />
                 driven by <span className="text-foreground">burning passion.</span>
-              </p>
-              <p className="mt-5 thin text-sm text-foreground/70 leading-relaxed">
-                A studio of independent filmmakers, commercial directors, and post-production artists shaping frames that linger.
               </p>
             </motion.div>
           </div>
@@ -59,7 +56,7 @@ const HeroSection = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="md:hidden relative z-10 serif-italic text-primary text-2xl mt-8"
+            className="md:hidden relative z-10 font-display font-medium text-primary text-xl mt-8 tracking-tight"
           >
             Cinematic storytelling, driven by <span className="text-foreground">burning passion.</span>
           </motion.p>
