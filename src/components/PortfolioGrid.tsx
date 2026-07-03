@@ -69,7 +69,7 @@ const PortfolioGrid = () => {
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.06]"
                 />
                 {/* Darken overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-balsamico/90 via-balsamico/50 to-balsamico/20 transition-opacity duration-500 group-hover:opacity-90" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/55 to-background/20 transition-opacity duration-500 group-hover:opacity-90" />
                 {/* Big title */}
                 <div className="absolute inset-0 flex items-center justify-center p-6">
                   <h3 className="font-display font-extrabold uppercase text-center leading-[0.9] tracking-tight text-foreground text-4xl sm:text-5xl lg:text-6xl">
