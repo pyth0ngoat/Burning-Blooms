@@ -12,6 +12,7 @@ import shortfilmThumb from "@/assets/shortfilm.jpeg.asset.json";
 import vfxThumb from "@/assets/vfx_cgi.jpeg.asset.json";
 import modelingThumb from "@/assets/3d_modeling.jpeg.asset.json";
 import graphicThumb from "@/assets/graphic_designing.jpeg.asset.json";
+import commercialsThumb from "@/assets/videoediting_showreel.jpeg.asset.json";
 
 export type Category =
   | "Shortfilms"
@@ -49,9 +50,8 @@ export const categoryThumbnails: Record<Category, string> = {
   "VFX & CGI": vfxThumb.url,
   "3D Modelling": modelingThumb.url,
   "Graphic Design": graphicThumb.url,
-  // Commercials — swap to your own "video editing showreel" thumbnail here.
-  Commercials:
-    "https://images.unsplash.com/photo-1585951237318-9ea5e175b891?w=1600&q=80",
+  // Commercials — swap thumbnail in src/assets/videoediting_showreel.jpeg.asset.json
+  Commercials: commercialsThumb.url,
 };
 
 // ============================================================
