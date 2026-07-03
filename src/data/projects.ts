@@ -8,28 +8,51 @@
 // See README.md for detailed instructions on how to use this file.
 // ============================================================
 
-export type Category = "Animation" | "VFX Modeling" | "Video Edits";
+import shortfilmThumb from "@/assets/shortfilm.jpeg.asset.json";
+import vfxThumb from "@/assets/vfx_cgi.jpeg.asset.json";
+import modelingThumb from "@/assets/3d_modeling.jpeg.asset.json";
+import graphicThumb from "@/assets/graphic_designing.jpeg.asset.json";
+
+export type Category =
+  | "Shortfilms"
+  | "VFX & CGI"
+  | "3D Modelling"
+  | "Graphic Design"
+  | "Commercials";
 
 export interface Project {
-  /** Unique identifier — use lowercase-kebab-case (e.g., "my-project") */
   id: string;
-  /** Display title shown on the card and detail page */
   title: string;
-  /** Must be one of: "Animation" | "VFX Modeling" | "Video Edits" */
   category: Category;
-  /** Path to thumbnail image (place images in public/thumbnails/) */
   thumbnail_url: string;
-  /** YouTube or Vimeo embed URL (use the /embed/ format). Leave empty string if none. */
   video_embed_url: string;
-  /** Project description — supports multiple paragraphs as a single string */
   description: string;
-  /** Date string shown on the project detail (e.g., "2024") */
   date: string;
-  /** Optional list of tools/software used */
   tools?: string[];
-  /** Optional additional gallery image URLs */
   gallery?: string[];
 }
+
+// ============================================================
+// 🎨 CATEGORY THUMBNAILS — shown on the "Our Work" bento grid.
+// Edit these to replace the big tile images.
+// ============================================================
+export const categories: Category[] = [
+  "Shortfilms",
+  "VFX & CGI",
+  "3D Modelling",
+  "Graphic Design",
+  "Commercials",
+];
+
+export const categoryThumbnails: Record<Category, string> = {
+  Shortfilms: shortfilmThumb.url,
+  "VFX & CGI": vfxThumb.url,
+  "3D Modelling": modelingThumb.url,
+  "Graphic Design": graphicThumb.url,
+  // Commercials — swap to your own "video editing showreel" thumbnail here.
+  Commercials:
+    "https://images.unsplash.com/photo-1585951237318-9ea5e175b891?w=1600&q=80",
+};
 
 // ============================================================
 // ✏️  EDIT YOUR PROJECTS BELOW
@@ -37,54 +60,60 @@ export interface Project {
 
 const projects: Project[] = [
   {
-    id: "neon-genesis",
-    title: "Neon Genesis",
-    category: "Animation",
-    thumbnail_url: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&q=80",
+    id: "colors-of-what-was",
+    title: "The Colors of What Was",
+    category: "Shortfilms",
+    thumbnail_url: shortfilmThumb.url,
     video_embed_url: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     description:
-      "A futuristic short animation exploring neon-lit cityscapes and the boundary between the organic and the synthetic. Created entirely in Blender with post-processing in After Effects. The project pushed the limits of real-time rendering and volumetric lighting to achieve a cinematic cyberpunk atmosphere.",
+      "A meditative short film about memory, place, and the quiet weight of what we leave behind. Shot on location over four days with a small ensemble cast.",
     date: "2024",
-    tools: ["Blender", "After Effects", "DaVinci Resolve"],
+    tools: ["DaVinci Resolve", "Premiere Pro"],
   },
   {
-    id: "fractured-realms",
-    title: "Fractured Realms",
-    category: "VFX Modeling",
-    thumbnail_url: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&q=80",
+    id: "ember-forest",
+    title: "Ember Forest",
+    category: "VFX & CGI",
+    thumbnail_url: vfxThumb.url,
     video_embed_url: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     description:
-      "A VFX breakdown showcasing photorealistic environment modeling for a fantasy short film. The project involved creating detailed digital matte paintings, integrating 3D assets into live-action footage, and simulating realistic destruction effects using Houdini.",
+      "A live-action / CGI hybrid piece exploring an artist alone in a forest that slowly comes alive around them. Full compositing pipeline in Nuke.",
     date: "2024",
-    tools: ["Houdini", "Maya", "Nuke", "Substance Painter"],
+    tools: ["Nuke", "Houdini", "After Effects"],
   },
   {
-    id: "pulse-montage",
-    title: "Pulse Montage",
-    category: "Video Edits",
-    thumbnail_url: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&q=80",
-    video_embed_url: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    description:
-      "A high-energy music video edit combining rapid cuts, dynamic transitions, and color grading to match the rhythm and mood of an electronic music track. Every beat is synced to a visual event, creating a hypnotic viewing experience.",
-    date: "2023",
-    tools: ["Premiere Pro", "After Effects"],
-  },
-  {
-    id: "chrome-horizon",
-    title: "Chrome Horizon",
-    category: "Animation",
-    thumbnail_url: "https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?w=800&q=80",
+    id: "poppy-cottage",
+    title: "Poppy Cottage",
+    category: "3D Modelling",
+    thumbnail_url: modelingThumb.url,
     video_embed_url: "",
     description:
-      "A looping 3D animation of a surreal chrome landscape that morphs and shifts endlessly. Inspired by liquid metal aesthetics and retro-futurism. This piece was exhibited at a digital art gallery and rendered using Cinema 4D with Octane Renderer.",
+      "A stylized cottage environment built in Blender with hand-textured materials and painterly lighting inspired by classic story-book illustration.",
+    date: "2024",
+    tools: ["Blender", "Substance Painter"],
+  },
+  {
+    id: "king-deals",
+    title: "King Deals — Social Campaign",
+    category: "Graphic Design",
+    thumbnail_url: graphicThumb.url,
+    video_embed_url: "",
+    description:
+      "A social-first campaign of bold typographic posters and product-forward compositions for a quick-service restaurant brand refresh.",
     date: "2023",
-    tools: ["Cinema 4D", "Octane Render", "After Effects"],
+    tools: ["Photoshop", "Illustrator"],
+  },
+  {
+    id: "showreel-2024",
+    title: "Video Editing Showreel",
+    category: "Commercials",
+    thumbnail_url: categoryThumbnails.Commercials,
+    video_embed_url: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    description:
+      "A high-energy commercial showreel — rhythm-cut brand spots, product films, and lifestyle stories crafted for scroll-stopping social delivery.",
+    date: "2024",
+    tools: ["Premiere Pro", "After Effects", "DaVinci Resolve"],
   },
 ];
 
 export default projects;
-
-// ============================================================
-// 💡 CATEGORIES — used for the filter buttons
-// ============================================================
-export const categories: Category[] = ["Animation", "VFX Modeling", "Video Edits"];
