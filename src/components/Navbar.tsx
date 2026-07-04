@@ -34,11 +34,9 @@ const Navbar = () => {
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           className="flex items-center gap-2"
+          aria-label="Burning Blooms — Home"
         >
-          <span className="w-2 h-2 rounded-full bg-primary" />
-          <span className="font-display font-extrabold tracking-tight text-sm uppercase text-foreground">
-            Burning Blooms
-          </span>
+          <img src={bbLogo.url} alt="Burning Blooms" className="h-9 w-9 md:h-10 md:w-10 rounded-md" />
         </button>
 
         <div className="hidden md:flex items-center gap-10">
