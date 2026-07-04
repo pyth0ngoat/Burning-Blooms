@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
 import { Behance, Instagram, Linkedin, Youtube } from "./SocialIcons";
 
 const socials = [
@@ -9,8 +10,11 @@ const socials = [
 ];
 
 const HeroSection = () => {
+  const scrollToWork = () =>
+    document.getElementById("portfolio")?.scrollIntoView({ behavior: "smooth" });
+
   return (
-    <section id="home" className="relative pt-28 pb-16 md:pt-32 md:pb-24 bg-background">
+    <section id="home" className="relative pt-28 pb-10 md:pt-32 md:pb-14 bg-background">
       <div className="container-x">
         {/* Hero frame */}
         <div className="hero-frame min-h-[78vh] md:min-h-[86vh] flex flex-col justify-between p-6 md:p-10 lg:p-14">
@@ -24,50 +28,56 @@ const HeroSection = () => {
           <div className="absolute inset-0 hero-vignette" />
 
           {/* Content */}
-          <div className="relative z-10 flex items-start justify-between gap-8">
+          <div className="relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <p className="thin text-xs md:text-sm uppercase tracking-[0.35em] text-foreground/80">
+              <p className="font-display font-semibold text-sm md:text-base lg:text-lg uppercase tracking-[0.28em] text-foreground/90">
                 Welcome to
               </p>
-              <h1 className="mt-3 display-xl text-[13vw] md:text-[8.5vw] lg:text-[7vw] text-foreground leading-[0.85]">
-                Burning<br />Blooms
+              <h1 className="mt-4 display-xl text-[15vw] md:text-[10vw] lg:text-[8.5vw] text-foreground leading-[0.85]">
+                Burning Blooms
               </h1>
-            </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.15 }}
-              className="hidden md:block max-w-sm text-right pt-4"
-            >
-              <p className="serif-italic text-primary text-lg lg:text-xl leading-[1.2]">
-                Cinematic storytelling,<br />
-                driven by <span className="text-foreground">burning passion.</span>
-              </p>
+              <motion.p
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.15 }}
+                className="mt-6 md:mt-8 font-display font-semibold italic text-primary text-xl md:text-2xl lg:text-3xl max-w-2xl leading-[1.25]"
+              >
+                Cinematic storytelling,<br className="hidden md:block" />
+                {" "}driven by <span className="text-foreground">burning passion.</span>
+              </motion.p>
             </motion.div>
           </div>
 
-          {/* Mobile tagline */}
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="md:hidden relative z-10 serif-italic text-primary text-base mt-8 leading-snug"
+          {/* Bottom-right explore CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.35 }}
+            className="relative z-10 flex justify-end"
           >
-            Cinematic storytelling, driven by <span className="text-foreground">burning passion.</span>
-          </motion.p>
+            <button
+              onClick={scrollToWork}
+              className="group inline-flex items-center gap-2 md:gap-3 pl-4 md:pl-6 pr-1 py-1 rounded-full bg-foreground/95 text-background hover:bg-primary transition-colors text-xs md:text-sm font-medium"
+            >
+              <span className="uppercase tracking-[0.2em]">Explore our work</span>
+              <span className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center group-hover:bg-foreground transition-colors">
+                <ArrowUpRight className="w-4 h-4" />
+              </span>
+            </button>
+          </motion.div>
         </div>
 
-        {/* Socials strip — inspired by "trusted by" row */}
+        {/* Socials strip */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="mt-8 md:mt-10 rounded-2xl bg-card border border-border/60 px-6 md:px-10 py-6 flex flex-col md:flex-row md:items-center gap-6 md:gap-10"
+          className="mt-6 md:mt-8 rounded-2xl bg-card border border-border/60 px-6 md:px-10 py-6 flex flex-col md:flex-row md:items-center gap-6 md:gap-10"
         >
           <p className="thin text-xs uppercase tracking-[0.3em] text-foreground/60 max-w-[10rem] shrink-0">
             Find us<br />across the web
