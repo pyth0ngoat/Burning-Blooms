@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
+import bbLogo from "@/assets/bb_logo.png.asset.json";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
