@@ -54,7 +54,7 @@ function ModelStage({ showcase }: { showcase: ModelShowcase }) {
             )}
           </Center>
         </Bounds>
-        <Environment preset="studio" />
+        <Environment preset="apartment" />
       </Suspense>
       <OrbitControls
         enablePan={false}
