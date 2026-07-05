@@ -32,7 +32,7 @@ const modelShowcases: ModelShowcase[] = [
     title: "Poppy Cottage",
     description:
       "A stylised story-book cottage. Hand-textured materials, painterly lighting, and a fully modular kit-bash build in Blender.",
-    modelUrl: "",
+    modelUrl: "/3d_models/Futuristic_Rifle.gltf",
     renders: [ph("cottage1"), ph("cottage2"), ph("cottage3"), ph("cottage4")],
   },
   {
