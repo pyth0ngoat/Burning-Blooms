@@ -73,6 +73,7 @@ const PortfolioGrid = () => {
       </div>
 
       <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
+      <ModelShowcaseModal open={modelsOpen} onClose={() => setModelsOpen(false)} />
     </section>
   );
 };
