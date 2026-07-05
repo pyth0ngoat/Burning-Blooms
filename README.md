@@ -3,27 +3,28 @@
 A static, no-backend portfolio site for **Burning Blooms** — a studio for
 Shortfilms, VFX & CGI, 3D Modelling, Graphic Design, and Commercials.
 
-Everything on the site is driven by **one data file** and **five thumbnail
-images**. No database, no CMS, no code changes needed for day-to-day updates.
+Everything on the site is driven by **two data files** and a handful of
+images. No database, no CMS, no code changes needed for day-to-day updates.
 
 ---
 
 ## 1. What each section shows
 
-| Section        | Where it comes from                                              |
-| -------------- | ---------------------------------------------------------------- |
-| Hero video     | `public/reel.mp4` (background reel behind the "Burning Blooms" title) |
-| Our Work tiles | `categoryThumbnails` in `src/data/projects.ts`                   |
-| Project modal  | `projects` array in `src/data/projects.ts` (opens on tile click) |
-| Socials strip  | `socials` array in `src/components/HeroSection.tsx`              |
-| Contact / mail | `src/components/AboutContact.tsx`                                |
+| Section          | Where it comes from                                                     |
+| ---------------- | ----------------------------------------------------------------------- |
+| Site logo / tab  | `src/assets/bb_logo.png.asset.json` (nav) + `public/favicon.png` (tab)  |
+| Hero video       | `public/reel.mp4` (background reel behind the "Burning Blooms" title)   |
+| Our Work tiles   | `categoryThumbnails` in `src/data/projects.ts` (2-up grid on desktop)   |
+| Project modal    | `projects` array in `src/data/projects.ts` (opens on tile click)        |
+| 3D Modelling     | `src/data/models.ts` — horizontal-swipe 3D showcase (see §3)            |
+| Socials strip    | `socials` array in `src/components/HeroSection.tsx`                     |
+| Contact / mail   | `src/components/AboutContact.tsx`                                       |
 
 ---
 
-## 2. The two things you'll actually edit
+## 2. Projects — `src/data/projects.ts`
 
-### A. The data file — `src/data/projects.ts`
-Add / edit / remove projects here. Each entry looks like:
+Add / edit / remove projects here. Each entry:
 
 ```ts
 {
@@ -32,7 +33,7 @@ Add / edit / remove projects here. Each entry looks like:
   category: "Shortfilms",                 // MUST be one of the 5 categories
   thumbnail_url: shortfilmThumb.url,      // image shown inside the modal
   video_embed_url: "https://www.youtube.com/embed/XXXX", // "" if none
-  description: "…",                       // any length, plain text
+  description: "…",
   date: "2024",
   tools: ["DaVinci Resolve", "Premiere Pro"], // optional
 }
@@ -44,12 +45,11 @@ Valid categories (exact spelling, case-sensitive):
 "Shortfilms" | "VFX & CGI" | "3D Modelling" | "Graphic Design" | "Commercials"
 ```
 
-Clicking a tile in the "Our Work" grid opens the **first project in that
-category**. So to feature something new under, say, "VFX & CGI", put it at the
-top of the array.
+Clicking a tile opens the **first project in that category** — except
+**"3D Modelling"**, which opens the 3D showcase modal (see §3). To feature
+something new under, say, "VFX & CGI", put it at the top of the array.
 
-### B. The 5 tile thumbnails — `src/assets/`
-The big tiles in the "Our Work" section use these files:
+### Tile thumbnails — `src/assets/`
 
 | Tile           | File to replace                                    |
 | -------------- | -------------------------------------------------- |
@@ -59,53 +59,103 @@ The big tiles in the "Our Work" section use these files:
 | Graphic Design | `src/assets/graphic_designing.jpeg.asset.json`     |
 | Commercials    | `src/assets/videoediting_showreel.jpeg.asset.json` |
 
-**The tiles have no text overlay** — the site displays the image as-is, so
-bake the category title into the image itself (as the current thumbnails do).
-
-To swap a thumbnail: upload a new image via the Lovable UI at the same file
-path — the URL in the `.asset.json` pointer will update automatically. You do
-not need to edit any code.
+**Tiles have no text overlay** — bake the category title into the image
+itself. To swap: upload a new image via the Lovable UI at the same file
+path; the URL updates automatically.
 
 ---
 
-## 3. Common tasks
+## 3. 3D Modelling showcase — `src/data/models.ts`
+
+Clicking the **3D Modelling** tile opens a full-screen modal with a
+horizontally-swipeable carousel. Each slide has:
+
+- an **interactive 3D model** (drag to orbit, scroll to zoom) on the left
+- **4 static high-quality render images** stacked on the right
+- title + description
+- navigation via arrow buttons, ← / → keys, swipe, or dot indicators
+
+Add / remove slides freely — the carousel updates automatically.
+
+```ts
+{
+  id: "poppy-cottage",
+  title: "Poppy Cottage",
+  description: "…",
+  modelUrl: "/models/poppy-cottage.glb", // "" => stylised placeholder mesh
+  modelScale: 1,                          // optional
+  renders: [                              // EXACTLY 4 images
+    "/renders/poppy-1.png",
+    "/renders/poppy-2.png",
+    "/renders/poppy-3.png",
+    "/renders/poppy-4.png",
+  ],
+}
+```
+
+### Where to put the files
+
+- **3D models**: drop `.glb` / `.gltf` files into `public/models/` and set
+  `modelUrl: "/models/yourfile.glb"`. `.glb` is strongly recommended
+  (smaller, single-file, materials + textures embedded).
+- **Render images**: drop PNG/JPGs into `public/renders/` and reference as
+  `"/renders/yourfile.png"`. High-res is fine — they're lazy-loaded.
+- **No model yet?** Leave `modelUrl: ""` and a placeholder mesh renders in
+  its place so the slide still works.
+
+### Add a new 3D slide
+Open `src/data/models.ts`, copy any entry in the `modelShowcases` array,
+change the `id`, `title`, `modelUrl`, and the 4 `renders`. Save.
+
+### Remove a slide
+Delete its object from the `modelShowcases` array.
+
+### Reorder slides
+Reorder the objects in the array — that's the order in the carousel.
+
+---
+
+## 4. Common tasks
 
 ### Add a new project
-Open `src/data/projects.ts` and add a new object to the `projects` array.
-Copy an existing entry as a template. Save the file — the site updates.
+Edit `src/data/projects.ts` and add to the `projects` array.
 
 ### Change the featured project for a tile
-Move the project you want featured to the **top** of the `projects` array
-(within its category). The tile always opens the first match.
+Move the project to the **top** of the array (within its category).
 
 ### Change a tile image
-Replace the image file at the path listed in the table above.
+Replace the file at the path listed in the table in §2.
 
 ### Change the hero background video
 Replace `public/reel.mp4` with your own MP4 (same filename).
+
+### Change the logo / favicon
+- Nav logo: replace `src/assets/bb_logo.png.asset.json` (upload via UI).
+- Browser tab icon: replace `public/favicon.png`.
 
 ### Change social links
 Edit the `socials` array at the top of `src/components/HeroSection.tsx`.
 
 ### Change the contact email
-Edit `src/components/AboutContact.tsx` — search for `mailto:` and update.
+Edit `src/components/AboutContact.tsx` — search for `mailto:`.
 
 ---
 
-## 4. Categories cheat-sheet
+## 5. Categories cheat-sheet
 
-If you ever need to add / rename a category, three files must agree:
+If you ever add / rename a category, three spots in
+`src/data/projects.ts` must agree:
 
-1. `src/data/projects.ts` → the `Category` union type
-2. `src/data/projects.ts` → the `categories` array (drives the tile order)
-3. `src/data/projects.ts` → the `categoryThumbnails` object (image per tile)
+1. the `Category` union type
+2. the `categories` array (drives tile order)
+3. the `categoryThumbnails` object (image per tile)
 
-Also update the bento layout spans in
-`src/components/PortfolioGrid.tsx` if the number of tiles changes from 5.
+The "Our Work" grid is 2 columns on desktop, 1 on mobile — no layout
+changes needed when the number of tiles changes.
 
 ---
 
-## 5. Running locally (optional)
+## 6. Running locally (optional)
 
 ```bash
 npm install
@@ -113,4 +163,4 @@ npm run dev      # local dev server
 npm run build    # production build
 ```
 
-That's it. Edit the data file → the site updates. No backend, ever.
+That's it. Edit the data files → the site updates. No backend, ever.
