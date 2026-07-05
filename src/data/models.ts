@@ -29,7 +29,7 @@ const ph = (seed: string) =>
 const modelShowcases: ModelShowcase[] = [
   {
     id: "poppy-cottage",
-    title: "Poppy Cottage",
+    title: "Futuristic Rifle",
     description:
       "A stylised story-book cottage. Hand-textured materials, painterly lighting, and a fully modular kit-bash build in Blender.",
     modelUrl: "/3d_models/Futuristic_Rifle.gltf",
