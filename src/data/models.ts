@@ -41,7 +41,12 @@ const modelShowcases: ModelShowcase[] = [
     description:
       "Hero prop for a short film — hard-surface modelling with substance-painted PBR materials and animated ember shader passes.",
     modelUrl: "/3d_models/Turtle.glb",
-    renders: [("/renders/turtle/Turtle_4K_01.jpg"), ("/renders/turtle/Turtle_4K_02.jpg"), ("/renders/turtle/Turtle_4K_03.jpg"), ("/renders/turtle/Turtle_4K_04.jpg")],
+    renders: [
+      "/renders/turtle/Turtle_4K_01.jpg",
+      "/renders/turtle/Turtle_4K_02.jpg",
+      "/renders/turtle/Turtle_4K_03.jpg",
+      "/renders/turtle/Turtle_4K_04.jpg",
+    ],
   },
   {
     id: "night-market",
