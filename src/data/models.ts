@@ -40,7 +40,7 @@ const modelShowcases: ModelShowcase[] = [
     title: "Ember Armor",
     description:
       "Hero prop for a short film — hard-surface modelling with substance-painted PBR materials and animated ember shader passes.",
-    modelUrl: "",
+    modelUrl: "/3d_models/Turtle.glb",
     renders: [ph("armor1"), ph("armor2"), ph("armor3"), ph("armor4")],
   },
   {
