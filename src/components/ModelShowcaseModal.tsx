@@ -59,8 +59,8 @@ function ModelStage({ showcase }: { showcase: ModelShowcase }) {
       <OrbitControls
         enablePan={false}
         enableZoom
-        minDistance={2}
-        maxDistance={12}
+        minDistance={0.05}
+        maxDistance={1000}
         autoRotate
         autoRotateSpeed={0.6}
       />
