@@ -2,13 +2,19 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import projects, { categories, categoryThumbnails, type Category } from "@/data/projects";
 import ProjectModal from "./ProjectModal";
+import ModelShowcaseModal from "./ModelShowcaseModal";
 import type { Project } from "@/data/projects";
 
 const PortfolioGrid = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [modelsOpen, setModelsOpen] = useState(false);
 
   // Open the first project in the chosen category (if any).
   const openCategory = (cat: Category) => {
+    if (cat === "3D Modelling") {
+      setModelsOpen(true);
+      return;
+    }
     const p = projects.find((pr) => pr.category === cat);
     if (p) setSelectedProject(p);
   };
@@ -67,6 +73,7 @@ const PortfolioGrid = () => {
       </div>
 
       <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
+      <ModelShowcaseModal open={modelsOpen} onClose={() => setModelsOpen(false)} />
     </section>
   );
 };
