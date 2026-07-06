@@ -1,13 +1,15 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import projects, { categories, categoryThumbnails, type Category } from "@/data/projects";
 import ProjectModal from "./ProjectModal";
 import ModelShowcaseModal from "./ModelShowcaseModal";
+import VfxShowcaseModal from "./VfxShowcaseModal";
 import type { Project } from "@/data/projects";
 
 const PortfolioGrid = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [modelsOpen, setModelsOpen] = useState(false);
+  const [vfxOpen, setVfxOpen] = useState(false);
 
   // Open the first project in the chosen category (if any).
   const openCategory = (cat: Category) => {
@@ -15,9 +17,24 @@ const PortfolioGrid = () => {
       setModelsOpen(true);
       return;
     }
+    if (cat === "VFX & CGI") {
+      setVfxOpen(true);
+      return;
+    }
     const p = projects.find((pr) => pr.category === cat);
     if (p) setSelectedProject(p);
   };
+
+  // Allow other components (e.g. hero "See the showreel" button) to open a category modal.
+  useEffect(() => {
+    const handler = (e: Event) => {
+      const cat = (e as CustomEvent<Category>).detail;
+      if (cat) openCategory(cat);
+    };
+    window.addEventListener("bb:open-category", handler as EventListener);
+    return () => window.removeEventListener("bb:open-category", handler as EventListener);
+  }, []);
+
 
   return (
     <section id="portfolio" className="pt-10 md:pt-14 pb-24 md:pb-32 bg-background">
@@ -74,6 +91,7 @@ const PortfolioGrid = () => {
 
       <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
       <ModelShowcaseModal open={modelsOpen} onClose={() => setModelsOpen(false)} />
+      <VfxShowcaseModal open={vfxOpen} onClose={() => setVfxOpen(false)} />
     </section>
   );
 };

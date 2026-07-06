@@ -72,6 +72,7 @@ function ModelStage({ showcase }: { showcase: ModelShowcase }) {
 
 const ModelShowcaseModal = ({ open, onClose }: Props) => {
   const [index, setIndex] = useState(0);
+  const [lightbox, setLightbox] = useState<string | null>(null);
   const total = modelShowcases.length;
   const touchStartX = useRef<number | null>(null);
 
@@ -194,11 +195,10 @@ const ModelShowcaseModal = ({ open, onClose }: Props) => {
                 </p>
                 <div className="grid grid-cols-2 lg:grid-cols-1 gap-3">
                   {showcase.renders.map((src, i) => (
-                    <a
+                    <button
                       key={i}
-                      href={src}
-                      target="_blank"
-                      rel="noreferrer"
+                      type="button"
+                      onClick={() => setLightbox(src)}
                       className="group block overflow-hidden rounded-lg border border-border/60 bg-secondary aspect-square"
                     >
                       <img
@@ -207,7 +207,7 @@ const ModelShowcaseModal = ({ open, onClose }: Props) => {
                         loading="lazy"
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                       />
-                    </a>
+                    </button>
                   ))}
                 </div>
 
@@ -231,6 +231,45 @@ const ModelShowcaseModal = ({ open, onClose }: Props) => {
               ))}
             </div>
           </motion.div>
+
+          {/* Render lightbox */}
+          <AnimatePresence>
+            {lightbox && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setLightbox(null);
+                }}
+                className="fixed inset-0 z-[60] flex items-center justify-center bg-background/95 backdrop-blur-md p-4 md:p-10"
+              >
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setLightbox(null);
+                  }}
+                  aria-label="Close preview"
+                  className="absolute top-5 right-5 w-11 h-11 flex items-center justify-center rounded-full border border-border bg-background/70 text-foreground hover:border-primary transition"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+                <motion.img
+                  key={lightbox}
+                  initial={{ scale: 0.96, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  exit={{ scale: 0.96, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                  src={lightbox}
+                  alt="Render preview"
+                  onClick={(e) => e.stopPropagation()}
+                  className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
+                />
+              </motion.div>
+            )}
+          </AnimatePresence>
         </motion.div>
       )}
     </AnimatePresence>
