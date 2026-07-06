@@ -5,8 +5,8 @@ import { Behance, Instagram, Linkedin, Youtube } from "./SocialIcons";
 const socials = [
   { label: "Behance", url: "https://behance.net", Icon: Behance },
   { label: "LinkedIn", url: "https://linkedin.com", Icon: Linkedin },
-  { label: "Instagram", url: "https://instagram.com", Icon: Instagram },
-  { label: "YouTube", url: "https://youtube.com", Icon: Youtube },
+  { label: "Instagram", url: "https://www.instagram.com/the_burning_blooms", Icon: Instagram },
+  { label: "YouTube", url: "https://www.instagram.com/the_burning_blooms", Icon: Youtube },
 ];
 
 const HeroSection = () => {

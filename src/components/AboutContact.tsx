@@ -5,8 +5,8 @@ import { Behance, Instagram, Linkedin, Youtube } from "./SocialIcons";
 const socials = [
   { label: "Behance", url: "https://behance.net", Icon: Behance },
   { label: "LinkedIn", url: "https://linkedin.com", Icon: Linkedin },
-  { label: "Instagram", url: "https://instagram.com", Icon: Instagram },
-  { label: "YouTube", url: "https://youtube.com", Icon: Youtube },
+  { label: "Instagram", url: "https://www.instagram.com/the_burning_blooms", Icon: Instagram },
+  { label: "YouTube", url: "https://www.youtube.com/@the.burning.blooms", Icon: Youtube },
 ];
 
 const AboutContact = () => {
@@ -49,7 +49,7 @@ const AboutContact = () => {
                 href="mailto:hello@burningblooms.com"
                 className="group inline-flex items-center gap-3 md:gap-5 display-xl text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1] text-foreground hover:text-primary transition-colors break-all"
               >
-                <span className="break-all">hello@burningblooms.com</span>
+                <span className="break-all">the.burning.blooms@gmail.com</span>
                 <ArrowUpRight className="w-8 h-8 md:w-12 md:h-12 transition-transform duration-500 group-hover:rotate-45 shrink-0" />
               </a>
             </div>
