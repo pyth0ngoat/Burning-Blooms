@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import projects, { categories, categoryThumbnails, type Category } from "@/data/projects";
 import ProjectModal from "./ProjectModal";
