@@ -62,19 +62,14 @@ function BeforeAfter({ before, after, alt }: { before: string; after: string; al
         draggable={false}
         className="absolute inset-0 w-full h-full object-cover pointer-events-none"
       />
-      {/* Before (clipped) */}
-      <div
-        className="absolute inset-0 overflow-hidden pointer-events-none"
-        style={{ width: `${pos}%` }}
-      >
-        <img
-          src={before}
-          alt={`${alt} — before`}
-          draggable={false}
-          className="absolute inset-0 h-full object-cover"
-          style={{ width: `${100 / (pos / 100 || 1)}vw`, maxWidth: "none" }}
-        />
-      </div>
+      {/* Before (clipped from the right) */}
+      <img
+        src={before}
+        alt={`${alt} — before`}
+        draggable={false}
+        className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+        style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}
+      />
 
       {/* Labels */}
       <span className="absolute top-4 left-4 mono text-[10px] tracking-[0.3em] uppercase bg-background/70 backdrop-blur px-3 py-1.5 rounded-sm text-foreground">
