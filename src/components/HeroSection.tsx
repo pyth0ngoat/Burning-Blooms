@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { Play } from "lucide-react";
 import { Behance, Instagram, Linkedin, Youtube } from "./SocialIcons";
 
 const socials = [
@@ -10,8 +10,13 @@ const socials = [
 ];
 
 const HeroSection = () => {
-  const scrollToWork = () =>
+  const openShowreel = () => {
     document.getElementById("portfolio")?.scrollIntoView({ behavior: "smooth" });
+    // Give the smooth-scroll a beat, then ask PortfolioGrid to open the Commercials showreel.
+    window.setTimeout(() => {
+      window.dispatchEvent(new CustomEvent("bb:open-category", { detail: "Commercials" }));
+    }, 500);
+  };
 
   return (
     <section id="home" className="relative pt-28 pb-10 md:pt-32 md:pb-14 bg-background">
@@ -61,12 +66,12 @@ const HeroSection = () => {
             className="relative z-10 flex justify-end"
           >
             <button
-              onClick={scrollToWork}
+              onClick={openShowreel}
               className="group inline-flex items-center gap-2 md:gap-3 pl-4 md:pl-6 pr-1 py-1 rounded-full bg-foreground/95 text-background hover:bg-primary transition-colors text-xs md:text-sm font-medium"
             >
-              <span className="uppercase tracking-[0.2em]">Explore our work</span>
+              <span className="uppercase tracking-[0.2em]">See the showreel</span>
               <span className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center group-hover:bg-foreground transition-colors">
-                <ArrowUpRight className="w-4 h-4" />
+                <Play className="w-3.5 h-3.5 md:w-4 md:h-4 fill-current" />
               </span>
             </button>
           </motion.div>
