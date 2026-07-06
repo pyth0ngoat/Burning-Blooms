@@ -72,6 +72,7 @@ function ModelStage({ showcase }: { showcase: ModelShowcase }) {
 
 const ModelShowcaseModal = ({ open, onClose }: Props) => {
   const [index, setIndex] = useState(0);
+  const [lightbox, setLightbox] = useState<string | null>(null);
   const total = modelShowcases.length;
   const touchStartX = useRef<number | null>(null);
 
