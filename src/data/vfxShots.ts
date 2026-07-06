@@ -29,8 +29,8 @@ const vfxShots: VfxShot[] = [
     title: "Field of Fire",
     description:
       "Live plate of an empty field transformed into a burning inferno at dusk — full CG fire simulation, sky replacement, ember particles and atmospheric relight.",
-    beforeUrl: before1.url,
-    afterUrl: after1.url,
+    beforeUrl: "/vfx_images/before_1.jpg",
+    afterUrl: "/vfx_images/after_1.jpg",
     tools: ["Houdini", "Nuke", "After Effects"],
   },
   // 👉 Add more before/after shots below by duplicating this block.

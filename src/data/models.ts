@@ -50,19 +50,19 @@ const modelShowcases: ModelShowcase[] = [
   },
   {
     id: "night-market",
-    title: "Night Market Stall",
+    title: "Goblin",
     description:
       "Environment vignette built for a moody nighttime lighting test. Modular signage, hand-painted textures, volumetric fog.",
-    modelUrl: "",
-    renders: [ph("market1"), ph("market2"), ph("market3"), ph("market4")],
+    modelUrl: "/3d_models/GOBLIN.glb",
+    renders: ["/renders/goblin/goblin_1.jpeg", "/renders/goblin/goblin_2.jpeg", "/renders/goblin/goblin_3.jpeg", "/renders/goblin/goblin_4.jpeg"],
   },
   {
     id: "ceramic-still-life",
     title: "Ceramic Still Life",
     description:
       "Studio product-style render of hand-sculpted ceramics. Focused on subsurface, glaze breakup, and micro-scratch detail.",
-    modelUrl: "",
-    renders: [ph("ceramic1"), ph("ceramic2"), ph("ceramic3"), ph("ceramic4")],
+    modelUrl: "/3d_models/Cabin.glb",
+    renders: ["/renders/cabin/Wooden_Cabin_1.jpeg", "/renders/cabin/Wooden_Cabin_2.jpeg", "/renders/cabin/Wooden_Cabin_3.jpeg", "/renders/cabin/Wooden_Cabin_4.jpeg" ],
   },
   {
     id: "forest-shrine",
