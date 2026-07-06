@@ -25,6 +25,17 @@ const PortfolioGrid = () => {
     if (p) setSelectedProject(p);
   };
 
+  // Allow other components (e.g. hero "See the showreel" button) to open a category modal.
+  useEffect(() => {
+    const handler = (e: Event) => {
+      const cat = (e as CustomEvent<Category>).detail;
+      if (cat) openCategory(cat);
+    };
+    window.addEventListener("bb:open-category", handler as EventListener);
+    return () => window.removeEventListener("bb:open-category", handler as EventListener);
+  }, []);
+
+
   return (
     <section id="portfolio" className="pt-10 md:pt-14 pb-24 md:pb-32 bg-background">
       <div className="container-x">
