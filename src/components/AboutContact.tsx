@@ -46,7 +46,7 @@ const AboutContact = () => {
                 Drop us a line
               </p>
               <a
-                href="mailto:hello@burningblooms.com"
+                href="mailto:the.burning.blooms@gmail.com"
                 className="group inline-flex items-center gap-3 md:gap-5 display-xl text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1] text-foreground hover:text-primary transition-colors break-all"
               >
                 <span className="break-all">the.burning.blooms@gmail.com</span>
