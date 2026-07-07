@@ -80,15 +80,8 @@ const PortfolioGrid = () => {
                 alt={cat}
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.05]"
               />
-              {/* Darkening gradient for legible overlay text */}
-              <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/10 to-background/70 group-hover:from-background/50 group-hover:to-background/80 transition-colors duration-500" />
-
-              {/* Centered category title */}
-              <div className="absolute inset-0 flex items-center justify-center px-4">
-                <h3 className="font-display font-semibold uppercase text-center leading-[0.95] tracking-tight text-foreground text-2xl sm:text-3xl md:text-2xl lg:text-[1.6rem] xl:text-3xl drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)]">
-                  {cat}
-                </h3>
-              </div>
+              {/* Subtle hover darken */}
+              <div className="absolute inset-0 bg-background/0 group-hover:bg-background/25 transition-colors duration-500" />
 
               {/* Persistent VIEW label */}
               <div className="absolute left-4 bottom-4 mono text-[10px] tracking-[0.25em] uppercase text-foreground/90">
