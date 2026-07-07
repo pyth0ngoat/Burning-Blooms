@@ -62,8 +62,8 @@ const PortfolioGrid = () => {
           </div>
         </motion.div>
 
-        {/* 2-column grid on desktop, 1-column on mobile — thumbnails carry their own titles */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
+        {/* Tall portrait tiles — 1 col mobile, 2 col tablet, all-in-a-row on desktop */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-5">
           {categories.map((cat, i) => (
             <motion.button
               key={cat}
@@ -73,15 +73,25 @@ const PortfolioGrid = () => {
               transition={{ duration: 0.7, delay: i * 0.08, ease: [0.2, 0.8, 0.2, 1] }}
               onClick={() => openCategory(cat)}
               aria-label={cat}
-              className="group relative overflow-hidden rounded-2xl bg-card text-left aspect-[4/3]"
+              className="group relative overflow-hidden rounded-2xl bg-card text-left aspect-[3/5]"
             >
               <img
                 src={categoryThumbnails[cat]}
                 alt={cat}
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.05]"
               />
-              <div className="absolute inset-0 bg-background/0 group-hover:bg-background/25 transition-colors duration-500" />
-              <div className="absolute left-4 bottom-4 mono text-[10px] tracking-[0.25em] uppercase text-foreground/90 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+              {/* Darkening gradient for legible overlay text */}
+              <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/10 to-background/70 group-hover:from-background/50 group-hover:to-background/80 transition-colors duration-500" />
+
+              {/* Centered category title */}
+              <div className="absolute inset-0 flex items-center justify-center px-4">
+                <h3 className="font-display font-semibold uppercase text-center leading-[0.95] tracking-tight text-foreground text-2xl sm:text-3xl md:text-2xl lg:text-[1.6rem] xl:text-3xl drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)]">
+                  {cat}
+                </h3>
+              </div>
+
+              {/* Persistent VIEW label */}
+              <div className="absolute left-4 bottom-4 mono text-[10px] tracking-[0.25em] uppercase text-foreground/90">
                 View →
               </div>
             </motion.button>
