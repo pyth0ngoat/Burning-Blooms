@@ -101,6 +101,7 @@ const PortfolioGrid = () => {
       <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
       <ModelShowcaseModal open={modelsOpen} onClose={() => setModelsOpen(false)} />
       <VfxShowcaseModal open={vfxOpen} onClose={() => setVfxOpen(false)} />
+      <GraphicShowcaseModal open={graphicsOpen} onClose={() => setGraphicsOpen(false)} />
     </section>
   );
 };
