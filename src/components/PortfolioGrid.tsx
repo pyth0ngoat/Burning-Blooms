@@ -4,12 +4,14 @@ import projects, { categories, categoryThumbnails, type Category } from "@/data/
 import ProjectModal from "./ProjectModal";
 import ModelShowcaseModal from "./ModelShowcaseModal";
 import VfxShowcaseModal from "./VfxShowcaseModal";
+import GraphicShowcaseModal from "./GraphicShowcaseModal";
 import type { Project } from "@/data/projects";
 
 const PortfolioGrid = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [modelsOpen, setModelsOpen] = useState(false);
   const [vfxOpen, setVfxOpen] = useState(false);
+  const [graphicsOpen, setGraphicsOpen] = useState(false);
 
   // Open the first project in the chosen category (if any).
   const openCategory = (cat: Category) => {
@@ -19,6 +21,10 @@ const PortfolioGrid = () => {
     }
     if (cat === "VFX & CGI") {
       setVfxOpen(true);
+      return;
+    }
+    if (cat === "Graphic Design") {
+      setGraphicsOpen(true);
       return;
     }
     const p = projects.find((pr) => pr.category === cat);
