@@ -23,16 +23,16 @@ const team: TeamMember[] = [
   {
     id: "tm-2",
     name: "Russel Miranda",
-    role: "VFX Supervisor",
+    role: "3D Artist",
     bio: "Runs the compositing and CG pipeline.",
     imageUrl: "/members/3d_guy.jpeg",
   },
   {
     id: "tm-3",
-    name: "",
-    role: "3D Artist",
+    name: "Varsha Sharma",
+    role: "VFX SUPERVISOR",
     bio: "Modeling, texturing and lighting lead.",
-    imageUrl: placeholder.url,
+    imageUrl: "/members/vfx.jpeg",
   },
   {
     id: "tm-4",
