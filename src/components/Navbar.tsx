@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Home, Briefcase, User } from "lucide-react";
+import { ArrowUpRight, Home, Flame, Briefcase, Users, Mail } from "lucide-react";
 import bbLogo from "@/assets/bb_logo.png.asset.json";
 
 const Navbar = () => {
@@ -17,8 +17,10 @@ const Navbar = () => {
 
   const links = [
     { label: "Home", id: "home", Icon: Home },
+    { label: "Current", id: "current", Icon: Flame },
     { label: "Work", id: "portfolio", Icon: Briefcase },
-    { label: "About", id: "about", Icon: User },
+    { label: "About", id: "team", Icon: Users },
+    { label: "Contact", id: "about", Icon: Mail },
   ];
 
   return (
