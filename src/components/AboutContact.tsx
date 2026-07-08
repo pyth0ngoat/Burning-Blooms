@@ -3,8 +3,8 @@ import { ArrowUpRight } from "lucide-react";
 import { Behance, Instagram, Linkedin, Youtube } from "./SocialIcons";
 
 const socials = [
-  { label: "Behance", url: "https://behance.net", Icon: Behance },
-  { label: "LinkedIn", url: "https://linkedin.com", Icon: Linkedin },
+  { label: "Behance", url: "https://www.behance.net/theburningblooms", Icon: Behance },
+  { label: "LinkedIn", url: "https://www.linkedin.com/in/burning-blooms-6a0907344", Icon: Linkedin },
   { label: "Instagram", url: "https://www.instagram.com/the_burning_blooms", Icon: Instagram },
   { label: "YouTube", url: "https://www.youtube.com/@the.burning.blooms", Icon: Youtube },
 ];

@@ -15,21 +15,21 @@ export interface TeamMember {
 const team: TeamMember[] = [
   {
     id: "tm-1",
-    name: "Founder Name",
+    name: "Advik Thokal",
     role: "Founder · Director",
     bio: "Leads creative direction across films and campaigns.",
-    imageUrl: placeholder.url,
+    imageUrl: "/members/advik.jpeg",
   },
   {
     id: "tm-2",
-    name: "Team Member",
+    name: "Russel Miranda",
     role: "VFX Supervisor",
     bio: "Runs the compositing and CG pipeline.",
-    imageUrl: placeholder.url,
+    imageUrl: "/members/3d_guy.jpeg",
   },
   {
     id: "tm-3",
-    name: "Team Member",
+    name: "",
     role: "3D Artist",
     bio: "Modeling, texturing and lighting lead.",
     imageUrl: placeholder.url,
