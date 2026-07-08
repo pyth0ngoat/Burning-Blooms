@@ -36,10 +36,10 @@ const team: TeamMember[] = [
   },
   {
     id: "tm-4",
-    name: "Team Member",
+    name: "Ketki Mahakal",
     role: "Editor",
     bio: "Cuts the story — shorts, commercials and reels.",
-    imageUrl: placeholder.url,
+    imageUrl: "/members/editor.jpeg",
   },
   {
     id: "tm-5",
