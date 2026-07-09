@@ -26,6 +26,26 @@ export interface VfxShot {
 const vfxShots: VfxShot[] = [
   //    Add more before/after shots below by duplicating this block.
   //    Upload new images through Lovable Assets and import them at the top.
+  {
+    id: "Keying",
+    title: "Chroma Keying",
+    description:
+      "Studio green screen plate of an embracing couple transformed into a warm, detailed interior — clean chroma key extraction, tracking marker removal, background integration, and precise edge light wrapping.",
+    beforeUrl: "/vfx_images/Keying_before.jpeg",
+    afterUrl: "/vfx_images/Keying_after.jpeg",
+    tools: ["Houdini", "Nuke", "After Effects"],
+  },
+
+    {
+    id: "Spaceship",
+    title: "CG Spaceship Compositing",
+    description:
+      "Live aerial plate of a barren desert transformed into an otherworldly sci-fi outpost at sunset — full CG spaceship and architecture integration, dramatic sky replacement, and heavy environmental color grading.",
+    beforeUrl: "/vfx_images/spaceship_before.jpeg",
+    afterUrl: "/vfx_images/spaceship_after.jpeg",
+    tools: ["Houdini", "Nuke", "After Effects"],
+  },
+
 
   {
     id: "field-of-fire",
@@ -37,6 +57,8 @@ const vfxShots: VfxShot[] = [
     tools: ["Houdini", "Nuke", "After Effects"],
   },
 
+
+
   {
     id: "CG-Character-Compositing",
     title: "CG Character Compositing",
@@ -44,6 +66,16 @@ const vfxShots: VfxShot[] = [
       "Studio green screen plate transformed into a cinematic jungle encounter — full CG creature integration, complete environment replacement, and atmospheric relight",
     beforeUrl: "/vfx_images/gorilla_before.jpg",
     afterUrl: "/vfx_images/gorilla_after.jpg",
+    tools: ["Houdini", "Nuke", "After Effects"],
+  },
+
+  {
+    id: "CG-Character-Integration",
+    title: "CG Character Integration",
+    description:
+      "Live plate of an empty pathway at night transformed into a moody creature encounter — CG character integration, 3D ground cracking simulation, atmospheric particle effects, and cinematic color grading.",
+    beforeUrl: "/vfx_images/character_int_before.jpeg",
+    afterUrl: "/vfx_images/character_int_after.jpeg",
     tools: ["Houdini", "Nuke", "After Effects"],
   },
 
@@ -58,24 +90,16 @@ const vfxShots: VfxShot[] = [
   },
 
   {
-    id: "Frame-Replacement",
-    title: "Frame Replacement",
+    id: "Screen-Replacement",
+    title: "Screen Replacement",
     description:
-      "Live plate of a moody ballerina painting transformed into a child's family drawing — seamless planar tracking, digital artwork replacement, and precise lighting integration.",
-    beforeUrl: "/vfx_images/frame_before.jpg",
-    afterUrl: "/vfx_images/frame_after.jpg",
+      "Live plate of a smartphone green screen transformed into an active social media interface — precision planar tracking, digital screen insertion, and seamless thumb occlusion.",
+    beforeUrl: "/vfx_images/screen_replacement_before.jpeg",
+    afterUrl: "/vfx_images/screen_replacement_after.jpeg",
     tools: ["Houdini", "Nuke", "After Effects"],
   },
+  
 
-  {
-    id: "Roto-Paint",
-    title: "Roto Paint",
-    description:
-      "Live plate of a graffiti-covered wall transformed into a pristine concrete surface — precision roto paint, seamless texture reconstruction, and accurate planar tracking.",
-    beforeUrl: "/vfx_images/paint_before.jpg",
-    afterUrl: "/vfx_images/paint_after.jpg",
-    tools: ["Houdini", "Nuke", "After Effects"],
-  },
 
 
 ];
