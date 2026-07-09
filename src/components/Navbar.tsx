@@ -74,7 +74,7 @@ const Navbar = () => {
 
         {/* Get in touch — full on desktop, compact icon-pill on mobile */}
         <a
-          href="mailto:hello@burningblooms.com"
+          href="mailto:the.burning.blooms@gmail.com"
           aria-label="Get in touch"
           className="group hidden md:inline-flex items-center gap-2 text-sm font-medium pl-5 pr-1 py-1 rounded-full bg-foreground text-background hover:bg-primary transition-colors shrink-0"
         >
