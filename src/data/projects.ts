@@ -64,45 +64,60 @@ const projects: Project[] = [
     title: "The Colors of What Was",
     category: "Shortfilms",
     thumbnail_url: shortfilmThumb.url,
-    video_embed_url: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    video_embed_url: "https://www.youtube.com/embed/rireWI_baDM",
     description:
       "A meditative short film about memory, place, and the quiet weight of what we leave behind. Shot on location over four days with a small ensemble cast.",
-    date: "2024",
+    date: "2026",
     tools: ["DaVinci Resolve", "Premiere Pro"],
   },
   {
-    id: "ember-forest",
-    title: "Ember Forest",
-    category: "VFX & CGI",
-    thumbnail_url: vfxThumb.url,
-    video_embed_url: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    description:
-      "A live-action / CGI hybrid piece exploring an artist alone in a forest that slowly comes alive around them. Full compositing pipeline in Nuke.",
-    date: "2024",
-    tools: ["Nuke", "Houdini", "After Effects"],
+      id: "wada-raha",
+      title: "Wada Raha",
+      category: "Shortfilms",
+      thumbnail_url: shortfilmThumb.url,
+      video_embed_url: "https://www.youtube.com/embed/FgYaYyaL3-U",
+      description:
+        "",
+      date: "2026",
+      tools: ["DaVinci Resolve", "Premiere Pro"],
   },
+
   {
-    id: "poppy-cottage",
-    title: "Poppy Cottage",
-    category: "3D Modelling",
-    thumbnail_url: modelingThumb.url,
-    video_embed_url: "",
-    description:
-      "A stylized cottage environment built in Blender with hand-textured materials and painterly lighting inspired by classic story-book illustration.",
-    date: "2024",
-    tools: ["Blender", "Substance Painter"],
+      id: "Relocation",
+      title: "Relocation No 396",
+      category: "Shortfilms",
+      thumbnail_url: shortfilmThumb.url,
+      video_embed_url: "https://www.youtube.com/embed/IfM7Gu_X2s8",
+      description:
+        "",
+      date: "2025",
+      tools: ["DaVinci Resolve", "Premiere Pro"],
   },
+
   {
-    id: "king-deals",
-    title: "King Deals — Social Campaign",
-    category: "Graphic Design",
-    thumbnail_url: graphicThumb.url,
-    video_embed_url: "",
-    description:
-      "A social-first campaign of bold typographic posters and product-forward compositions for a quick-service restaurant brand refresh.",
-    date: "2023",
-    tools: ["Photoshop", "Illustrator"],
+      id: "the-last-photograph",
+      title: "The Last Photograph | Horror Shortfilm",
+      category: "Shortfilms",
+      thumbnail_url: shortfilmThumb.url,
+      video_embed_url: "https://www.youtube.com/embed/G7wzZq8q4yw",
+      description:
+        "",
+      date: "2025",
+      tools: ["DaVinci Resolve", "Premiere Pro"],
   },
+
+  {
+      id: "final-render",
+      title: "Final Render",
+      category: "Shortfilms",
+      thumbnail_url: shortfilmThumb.url,
+      video_embed_url: "https://www.youtube.com/embed/5i8OVDuyu3k",
+      description:
+        "",
+      date: "2025",
+      tools: ["DaVinci Resolve", "Premiere Pro"],
+  },
+
   {
     id: "showreel-2024",
     title: "Video Editing Showreel",

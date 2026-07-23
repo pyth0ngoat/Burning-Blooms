@@ -44,9 +44,9 @@ const team: TeamMember[] = [
   {
     id: "tm-5",
     name: "Team Member",
-    role: "Graphic Designer",
-    bio: "Posters, key art, and brand systems.",
-    imageUrl: placeholder.url,
+    role: "Cinematographer",
+    bio: "Translates the script — from written word to moving images",
+    imageUrl: "/members/cinema.jpeg",
   },
 ];
 

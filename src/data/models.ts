@@ -28,12 +28,17 @@ const ph = (seed: string) =>
 
 const modelShowcases: ModelShowcase[] = [
   {
-    id: "poppy-cottage",
+    id: "Futuristic-Rifle",
     title: "Futuristic Rifle",
     description:
       "A stylised story-book cottage. Hand-textured materials, painterly lighting, and a fully modular kit-bash build in Blender.",
-    modelUrl: "/3d_models/Futuristic_Rifle.gltf",
-    renders: [ph("cottage1"), ph("cottage2"), ph("cottage3"), ph("cottage4")],
+    modelUrl: "/3d_models/Futuristic_Rifle.glb",
+    renders:  [
+      "/renders/rifle/rifle_render_1.jpeg",
+      "/renders/rifle/rifle_render_2.jpeg",
+      "/renders/rifle/rifle_render_3.jpeg",
+      "/renders/rifle/rifle_render_4.jpeg",
+    ],
   },
   {
     id: "ember-armor",
@@ -54,7 +59,12 @@ const modelShowcases: ModelShowcase[] = [
     description:
       "Environment vignette built for a moody nighttime lighting test. Modular signage, hand-painted textures, volumetric fog.",
     modelUrl: "/3d_models/GOBLIN.glb",
-    renders: ["/renders/goblin/goblin_1.jpeg", "/renders/goblin/goblin_2.jpeg", "/renders/goblin/goblin_3.jpeg", "/renders/goblin/goblin_4.jpeg"],
+    renders: [
+      "/renders/goblin/goblin_1.jpeg", 
+      "/renders/goblin/goblin_2.jpeg", 
+      "/renders/goblin/goblin_3.jpeg", 
+      "/renders/goblin/goblin_4.jpeg"
+    ],
   },
   {
     id: "ceramic-still-life",
@@ -62,15 +72,25 @@ const modelShowcases: ModelShowcase[] = [
     description:
       "Studio product-style render of hand-sculpted ceramics. Focused on subsurface, glaze breakup, and micro-scratch detail.",
     modelUrl: "/3d_models/Cabin.glb",
-    renders: ["/renders/cabin/Wooden_Cabin_1.jpeg", "/renders/cabin/Wooden_Cabin_2.jpeg", "/renders/cabin/Wooden_Cabin_3.jpeg", "/renders/cabin/Wooden_Cabin_4.jpeg" ],
+    renders: [
+      "/renders/cabin/Wooden_Cabin_1.jpeg", 
+      "/renders/cabin/Wooden_Cabin_2.jpeg", 
+      "/renders/cabin/Wooden_Cabin_3.jpeg", 
+      "/renders/cabin/Wooden_Cabin_4.jpeg" 
+    ],
   },
   {
-    id: "forest-shrine",
-    title: "Forest Shrine",
+    id: "jetpack",
+    title: "JetPack",
     description:
       "Overgrown shrine environment — sculpted stone, scattered foliage, and a full lighting pass in Cycles.",
-    modelUrl: "",
-    renders: [ph("shrine1"), ph("shrine2"), ph("shrine3"), ph("shrine4")],
+    modelUrl: "/3d_models/Jetpack.glb",
+    renders: [
+      "/renders/jetpack/Jetpack_render_1.jpeg", 
+      "/renders/jetpack/Jetpack_render_2.jpeg", 
+      "/renders/jetpack/Jetpack_render_3.jpeg", 
+      "/renders/jetpack/Jetpack_render_4.jpeg" 
+    ],
   },
 ];
 
