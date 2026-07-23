@@ -21,14 +21,14 @@ const team: TeamMember[] = [
     imageUrl: "/members/advik.jpeg",
   },
   {
-    id: "tm-2",
+    id: "tm-3",
     name: "Russel Miranda",
     role: "3D Artist",
     bio: "Modeling, texturing and lighting lead.",
     imageUrl: "/members/3d_guy.jpeg",
   },
   {
-    id: "tm-3",
+    id: "tm-2",
     name: "Varsha Sharma",
     role: "VFX SUPERVISOR",
     bio: "Runs the compositing and CG pipeline.",
@@ -43,7 +43,7 @@ const team: TeamMember[] = [
   },
   {
     id: "tm-5",
-    name: "Team Member",
+    name: "Mukesh Chaudhary",
     role: "Cinematographer",
     bio: "Translates the script — from written word to moving images",
     imageUrl: "/members/cinema.jpeg",
