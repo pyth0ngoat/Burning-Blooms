@@ -20,13 +20,7 @@ const team: TeamMember[] = [
     bio: "Leads creative direction across films and campaigns.",
     imageUrl: "/members/advik.jpeg",
   },
-  {
-    id: "tm-3",
-    name: "Russel Miranda",
-    role: "3D Artist",
-    bio: "Modeling, texturing and lighting lead.",
-    imageUrl: "/members/3d_guy.jpeg",
-  },
+  
   {
     id: "tm-2",
     name: "Varsha Sharma",
@@ -34,6 +28,14 @@ const team: TeamMember[] = [
     bio: "Runs the compositing and CG pipeline.",
     imageUrl: "/members/vfx.jpeg",
   },
+  {
+    id: "tm-3",
+    name: "Russel Miranda",
+    role: "3D Artist",
+    bio: "Modeling, texturing and lighting lead.",
+    imageUrl: "/members/3d_guy.jpeg",
+  },
+
   {
     id: "tm-4",
     name: "Ketki Mahakal",
